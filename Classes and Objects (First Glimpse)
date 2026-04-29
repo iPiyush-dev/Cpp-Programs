@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+// A class is a user defined datatype that contains - Data(Variables) and Functions(Methods) --> It's the blueprint of object.
+
+// This program has already some data of students and their marks and it prints their name, roll no, marks and whether he/she is passed or failed.
+class Student{
+    public:
+
+        string name;
+        int rollNo;
+        int totalMarks;
+
+        void showData(){
+            cout<<"The name of student is "<<name<<" and the roll no is "<<rollNo<<"."<<endl;
+        }
+
+        void isPassed(){
+            if (totalMarks>=33 && totalMarks<=100){
+                cout<<name<<" is Passed! As he/she scored "<<totalMarks<<endl;
+            }else{
+                cout<<name<<" is Failed! As he/she scored "<<totalMarks<<endl;
+            }
+        }
+};
+
+// Object - It is an instance of class. --> It's a real entity of class.
+
+int main(){
+
+    Student s1, s2, s3, s4;
+
+    s1.name = "Piyush";
+    s1.rollNo = 16;
+    s1.totalMarks = 94;
+
+    s1.showData();
+    s1.isPassed();
+
+    //  Student s2;
+
+    s2.name = "Abhishek";
+    s2.rollNo = 12;
+    s2.totalMarks = 84;
+
+    s2.showData();
+    s2.isPassed();
+
+    //  Student s3;
+
+    s3.name = "Rahul";
+    s3.rollNo = 21;
+    s3.totalMarks = 65;
+
+    s3.showData();
+    s3.isPassed();
+
+    //  Student s4;
+
+    s4.name = "Rishabh";
+    s4.rollNo = 52;
+    s4.totalMarks = 32;
+
+    s4.showData();
+    s4.isPassed();
+
+    return 0;
+}
+
+
+
+// Access Specifiers --> Public, Protected and Private:
+// Public - Accessible from anywhere in the program.
+// Protected -  Used in inheritence -- Learn Later.
+// Private - Accessible only inside the class. Cannot be accessed directly from outside.
