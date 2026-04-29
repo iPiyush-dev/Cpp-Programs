@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Demo{
+
+    private:
+        int secret;
+
+    public:
+        int value;
+
+    void setSecret(int s){
+        secret = s;
+    }
+
+    void show(){
+        cout<<"The value is: "<<value<<endl;
+        cout<<"The secret number is: "<<secret<<endl;
+    }
+
+};
+
+int main(){
+
+    Demo d1;
+    d1.value = 20; // Can be accessible directly because it is public.
+    // d1.secret = 30; // Cannot be accessible directly because it's private.
+
+    d1.setSecret(30);
+    d1.show();
+
+    return 0;
+}
+
+// Private Data is protected by using functions. This is the base of Encapsulation.
