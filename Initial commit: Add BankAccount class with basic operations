@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount{
+    
+    public:
+    string name;
+    
+    private:
+    int balance;
+    
+    public: 
+    
+    BankAccount(){
+        balance = 0;
+        cout<<"New Account has been created!"<<endl;
+    }
+    
+    void greetUser(){
+        cout<<"Welcome to our Bank "<<name<<"!"<<endl;
+    }
+    
+    // int amount;
+    
+    void deposit(int amt){
+        if(amt>0){
+            balance += amt;
+            cout<<"Deposited: "<<amt<<"."<<endl;
+        }else{
+            cout<<"Invalid Deposit!"<<endl;
+        }
+    }
+    void withdraw(int amt){
+        if(amt>0 && amt <= balance){
+            balance -= amt;
+            cout<<"Withdrawan: "<<amt<<"."<<endl;
+        }
+        else{
+            cout<<"Insufficient Amount!"<<endl;
+        }
+    }
+    void checkBalance(){
+        cout<<"The total balance of "<<name<<"'s account is: "<<balance<<endl;
+    }
+    
+};
+
+int main(){
+
+    BankAccount b1;
+    b1.name = "Akash";
+    b1.greetUser();
+    b1.deposit(2376);
+    b1.withdraw(999);
+    b1.checkBalance();
+    
+    return 0;
+}
