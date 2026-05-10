@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+/*
+// int fun(int i){
+//     i = 10;
+//     return i;
+// }
+
+int main(){
+    
+    int a,b;
+    cout<<"\n\n\t\t********** Illustrating Call By Value and Pass By Value **********\n";
+    int fun(int); //Fuction Declared
+    b = fun(a); //Function Called
+    cout<<"Value is: "<<b<<endl;
+
+    return 0;
+}
+int fun(int i){
+    i = 10;
+    return i;
+}
+*/
+
+int main(){
+
+    int x = 5, y = 7;
+    cout<<"\n\n\t\t Pass By Reference \n";
+    void func(int&, int&);
+    func(x,y);
+    cout<<"The output from calling program is: ";
+    cout<<"\n x = "<<x;
+    cout<<"\n y = "<<y;
+
+    return 0;
+}
+
+void func(int& s, int& u){
+    s*=10;
+    u*=5;
+}
