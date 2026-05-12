@@ -1,0 +1,123 @@
+// This is a program that provides the grade to the students based on their total marks.
+
+#include <iostream>
+#include <limits>
+using namespace std;
+
+class Student // Student Class declared.
+{
+private:
+    string name;
+    int marks[5];
+
+public:
+    void nameOfStudent()
+    {
+        bool valid = false;
+        while (!valid)
+        {
+            cout << "Press Enter to run the program." << endl;
+            cin.ignore(numeric_limits<streamsize>::max(),
+                       '\n');
+            cout << "Enter the name of the Student: ";
+            getline(cin, name);
+            valid = true;
+
+            for (int i = 0; i < name.length(); i++)
+            {
+                if (!(isalpha(name[i]) || name[i] == ' '))
+                {
+                    valid = false;
+                    cout << "Invalid name! Only alphabets are allowed. \n";
+                    break;
+                }
+            }
+        }
+    }
+    void marksOfStudent()
+    {
+        int n = 1;
+        for (int i = 0; i < 5; i++)
+        {
+            std::cout << endl
+                      << "Enter the marks of " << n << " subjects of " << name << ": ";
+            cin >> marks[i];
+            if (marks[i] <= 100 && marks[i] >= 33)
+            {
+                if (n <= 5)
+                {
+                    std::cout << "\nOk! Enter another." << endl;
+                }
+                if (n == 5)
+                {
+                    int m = 1;
+                    cout << "\n**********---------- " << name << "'s marks in each subjects are given below. ----------**********" << endl;
+                    for (int i = 0; i < 5; i++)
+                    {
+                        cout << name << "'s mark in " << m << " subject is: " << marks[i] << endl;
+                        m++;
+                    }
+                    int total = 0;
+                    for (int i = 0; i < 5; i++)
+                    {
+                        total = (total + marks[i]);
+                    }
+                    total = total / 5;
+                    string grade;
+                    if (total >= 95 && total <= 100)
+                    {
+                        grade = "A+";
+                    }
+                    else if (total >= 85 && total < 95)
+                    {
+                        grade = "A";
+                    }
+                    else if (total >= 75 && total < 85)
+                    {
+                        grade = "B";
+                    }
+                    else if (total >= 65 && total < 75)
+                    {
+                        grade = "C";
+                    }
+                    else if (total >= 45 && total < 65)
+                    {
+                        grade = "D";
+                    }
+                    else if (total >= 33 && total < 45)
+                    {
+                        grade = "E";
+                    }
+                    else
+                    {
+                        cout << "Fail" << endl;
+                    }
+                    cout << "The average score of " << name << " is " << total << " and grade is " << grade << "." << endl;
+                }
+                n++;
+            }
+            else if (marks[i] > 100 || marks[i] < 0)
+            {
+                std::cout << "Marks greater than 100 or less than 0 are invalid!" << endl;
+                break;
+            }
+            else
+            {
+                std::cout << "You are fail in " << n << " subject" << endl;
+                break;
+            }
+        }
+    }
+};
+
+int main()
+{
+    Student students[5];
+    for (int i = 0; i < 5; i++)
+    {
+        students[i].nameOfStudent();
+        students[i].marksOfStudent();
+    }
+
+    return 0;
+}
